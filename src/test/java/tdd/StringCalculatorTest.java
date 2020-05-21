@@ -21,4 +21,11 @@ public class StringCalculatorTest {
 		Assert.assertEquals(returnedValue, 0);
 	}
 
+	@Test
+	public void simpleTest()
+	{
+		String s = "1,2";
+		int returnedValue = stringCalculator.add(s);
+		Assert.assertEquals(returnedValue, 3);
+	}
 }

@@ -12,7 +12,14 @@ public class StringCalculator {
 		{
 			return 0;
 		}
-		return 0;
+		String[] strs = s.split(",");
+		int sum = 0;
+		for(int i=0 ; i<strs.length ; i++)
+		{
+			sum += Integer.parseInt(strs[i]);
+		}
+		
+		return sum;
 	}
 
 }
