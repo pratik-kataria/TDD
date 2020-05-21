@@ -12,7 +12,7 @@ public class StringCalculator {
 		{
 			return 0;
 		}
-		String[] strs = s.split(",");
+		String[] strs = s.split("[\n ,]");
 		int sum = 0;
 		for(int i=0 ; i<strs.length ; i++)
 		{

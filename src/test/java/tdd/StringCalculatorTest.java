@@ -28,4 +28,19 @@ public class StringCalculatorTest {
 		int returnedValue = stringCalculator.add(s);
 		Assert.assertEquals(returnedValue, 3);
 	}
+	
+	@Test
+	public void newLineTest1()
+	{
+		String s = "1\n2,3";
+		int returnedValue = stringCalculator.add(s);
+		Assert.assertEquals(returnedValue, 6);
+	}
+	@Test
+	public void newLineTest()
+	{
+		String s = "10  ,20 \n 30";
+		int returnedValue = stringCalculator.add(s);
+		Assert.assertEquals(returnedValue, 60);
+	}
 }
