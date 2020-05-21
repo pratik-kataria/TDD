@@ -14,7 +14,7 @@ public class StringCalculatorTest {
 		stringCalculator = new StringCalculator();
 	}
 	@Test
-	public void emptyStringTest()
+	public void emptyStringTest() throws Exception
 	{
 		String s = "";
 		int returnedValue = stringCalculator.add(s);
@@ -22,7 +22,7 @@ public class StringCalculatorTest {
 	}
 
 	@Test
-	public void simpleTest()
+	public void simpleTest() throws Exception
 	{
 		String s = "1,2";
 		int returnedValue = stringCalculator.add(s);
@@ -30,25 +30,42 @@ public class StringCalculatorTest {
 	}
 	
 	@Test
-	public void newLineTest1()
+	public void newLineTest1() throws Exception
 	{
 		String s = "1\n2,3";
 		int returnedValue = stringCalculator.add(s);
 		Assert.assertEquals(returnedValue, 6);
 	}
 	@Test
-	public void newLineTest()
+	public void newLineTest() throws Exception
 	{
-		String s = "10  ,20 \n 30";
+		String s = "10,20\n30";
 		int returnedValue = stringCalculator.add(s);
 		Assert.assertEquals(returnedValue, 60);
 	}
 	
-	@Test
-	public void changeDelimeterTest()
+	@Test(expected = Exception.class)
+	public void negativeNumberTest() throws Exception
 	{
-		String s = "//;\n1;2";
+		String s = "//;\n1;-2;-3;-4";
 		int returnedValue = stringCalculator.add(s);
-		Assert.assertEquals(returnedValue, 3);
+		
 	}
+	
+	@Test
+	public void getCalledCountTest() throws Exception
+	{
+		Integer returnedValue = null;
+		returnedValue = stringCalculator.getCalledCount();
+		Assert.assertNotNull(returnedValue);
+	}
+	
+	@Test
+	public void ignoreGreaterNumbers() throws Exception
+	{
+		String s = "10,20\n1001";
+		int returnedValue = stringCalculator.add(s);
+		Assert.assertEquals(returnedValue, 30);
+	}
+	
 }
