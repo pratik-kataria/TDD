@@ -12,7 +12,14 @@ public class StringCalculator {
 		{
 			return 0;
 		}
-		String[] strs = s.split("[\n ,]");
+		String delimeter = "[\n ,]";
+		if(s.startsWith("//"))
+		{
+			delimeter = s.charAt(2)+"";
+			s = s.substring(5 , s.length() + 1);
+		}
+	
+		String[] strs = s.split(delimeter);
 		int sum = 0;
 		for(int i=0 ; i<strs.length ; i++)
 		{

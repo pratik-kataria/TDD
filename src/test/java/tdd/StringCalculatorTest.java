@@ -43,4 +43,12 @@ public class StringCalculatorTest {
 		int returnedValue = stringCalculator.add(s);
 		Assert.assertEquals(returnedValue, 60);
 	}
+	
+	@Test
+	public void changeDelimeterTest()
+	{
+		String s = "//;\n1;2";
+		int returnedValue = stringCalculator.add(s);
+		Assert.assertEquals(returnedValue, 3);
+	}
 }
