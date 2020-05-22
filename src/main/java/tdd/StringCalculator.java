@@ -5,22 +5,14 @@ import java.util.Map.Entry;
 
 public class StringCalculator {
 	public static Integer calledCount = 0;
-	public StringCalculator()
-	{
-		
-	}
-
-	public static void main(String[] args) throws Exception {
-		StringCalculator sc = new StringCalculator();
-		sc.add("//;\n1;3;4");
-	}
+	
 	public static void incrementCalledCount() {
 		calledCount++;
 	}
 	public int add(String s) throws Exception {
 		incrementCalledCount();
 		StringBuilder sb  = new StringBuilder(s);
-		StringBuilder negativeNumbers = new StringBuilder();
+		
 		if(s.equals(""))
 		{
 			return 0;
@@ -38,8 +30,12 @@ public class StringCalculator {
 			delimeter = s.charAt(2)+"";
 			s = s.substring(4 , s.length());
 		}
-		
-	
+		return getSumFromString(s, delimeter);
+	}
+
+	public int getSumFromString(String s , String delimeter) throws Exception
+	{
+		StringBuilder negativeNumbers = new StringBuilder();
 		String[] strs = s.split(delimeter);
 		int sum = 0;
 		for(int i=0 ; i<strs.length ; i++)
@@ -62,7 +58,6 @@ public class StringCalculator {
 		}
 		return sum;
 	}
-
 	public String getCustomDelimeter(StringBuilder sb)
 	{
 		int index = sb.lastIndexOf("]");
