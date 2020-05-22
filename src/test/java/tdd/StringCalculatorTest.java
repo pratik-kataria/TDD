@@ -82,4 +82,21 @@ public class StringCalculatorTest {
 		Assert.assertEquals(returnedValue, 6);
 	}
 	
+	@Test()
+	public void multipleDelimetersTest() throws Exception
+	{
+		String s = "//[*][%]\n1*2%3";
+		int returnedValue = stringCalculator.add(s);
+		Assert.assertEquals(returnedValue, 6);
+	}
+	
+	@Test()
+	public void multipleDelimetersWithMulipleCharactersTest() throws Exception
+	{
+		String s = "//[**][%%]\n1**2%%3";
+		int returnedValue = stringCalculator.add(s);
+		Assert.assertEquals(returnedValue, 6);
+	}
+	
+	
 }
