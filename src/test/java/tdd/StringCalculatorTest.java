@@ -98,5 +98,26 @@ public class StringCalculatorTest {
 		Assert.assertEquals(returnedValue, 6);
 	}
 	
+	@Test()
+	public void complexTest1() throws Exception
+	{
+		String s = "//[***][%%][&&&&]\n10***20%%40&&&&30";
+		int returnedValue = stringCalculator.add(s);
+		Assert.assertEquals(returnedValue,100);
+	}
 	
+	@Test(expected = Exception.class)
+	public void complexTest2() throws Exception
+	{
+		String s = "//[***][%%][&&&&]\n10***20%%40&&&&-30&&&&-40";
+		int returnedValue = stringCalculator.add(s);
+		Assert.assertEquals(returnedValue,100);
+	}
+	@Test()
+	public void complexTest3() throws Exception
+	{
+		String s = "//[&]\n10000&20&30&10000";
+		int returnedValue = stringCalculator.add(s);
+		Assert.assertEquals(returnedValue,50);
+	}
 }
