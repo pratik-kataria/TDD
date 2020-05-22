@@ -43,11 +43,17 @@ public class StringCalculatorTest {
 		int returnedValue = stringCalculator.add(s);
 		Assert.assertEquals(returnedValue, 60);
 	}
-	
+	@Test()
+	public void customDelimeterTest() throws Exception
+	{
+		String s = "//;\n1;3;4";
+		int returnedValue = stringCalculator.add(s);
+		Assert.assertEquals(returnedValue, 8);
+	}
 	@Test(expected = Exception.class)
 	public void negativeNumberTest() throws Exception
 	{
-		String s = "//;\n1;-2;-3;-4";
+		String s = "//;\n1;-2;-3;-4;3";
 		int returnedValue = stringCalculator.add(s);
 		
 	}
@@ -66,6 +72,14 @@ public class StringCalculatorTest {
 		String s = "10,20\n1001";
 		int returnedValue = stringCalculator.add(s);
 		Assert.assertEquals(returnedValue, 30);
+	}
+	
+	@Test()
+	public void multipleCharDelimeterTest() throws Exception
+	{
+		String s = "//[***]\n1***2***3";
+		int returnedValue = stringCalculator.add(s);
+		Assert.assertEquals(returnedValue, 6);
 	}
 	
 }
